@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental Optima – Premier Dental Care, East Delhi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --mint:    #B8FDEC;
+  --sage:    #658472;
+  --sky:     #1E84B5;
+  --sky-lt:  #EBF6FC;
+  --bg:      #F5F9F6;
+  --cream:   #FDFAF6;
+  --warm:    #F0EDE8;
+  --text:    #1A1A1A;
+  --mid:     #5a6670;
+  --lt:      #9aaab5;
+  --white:   #ffffff;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--sky); border-radius: 4px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 76px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 56px;
+  transition: background 0.45s, box-shadow 0.45s;
+}
+nav.solid {
+  background: rgba(253,250,246,0.96);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.07);
+}
+.nav-logo img { height: 38px; display: block; transition: filter 0.4s; }
+nav:not(.solid) .nav-logo img { filter: brightness(0) invert(1); }
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links a {
+  font-size: 12.5px; font-weight: 500; letter-spacing: 0.07em;
+  text-transform: uppercase; text-decoration: none; transition: color 0.25s;
+}
+nav:not(.solid) .nav-links a { color: rgba(255,255,255,0.85); }
+nav.solid .nav-links a { color: var(--mid); }
+.nav-links a:hover { color: var(--sky) !important; }
+.btn-nav {
+  background: var(--sky); color: white !important;
+  padding: 10px 26px; border-radius: 100px;
+  box-shadow: 0 4px 18px rgba(30,132,181,0.32);
+  font-weight: 600 !important;
+  transition: background 0.25s, transform 0.25s !important;
+}
+.btn-nav:hover { background: #176fa0 !important; transform: translateY(-1px); }
+
+/* ── HERO SLIDESHOW ── */
+.hero {
+  position: relative; height: 100vh; min-height: 620px;
+  overflow: hidden; display: flex; align-items: flex-end;
+}
+.slides-wrap { position: absolute; inset: 0; }
+.slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 1.2s ease; z-index: 0;
+  transform: scale(1.06);
+  transition: opacity 1.3s ease, transform 8s ease-out;
+}
+.slide.active { opacity: 1; transform: scale(1); z-index: 1; }
+.hero-grad {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(
+    160deg,
+    rgba(15,55,80,0.65) 0%,
+    rgba(30,132,181,0.3) 40%,
+    rgba(184,253,236,0.1) 70%,
+    transparent 100%
+  );
+}
+.hero-content {
+  position: relative; z-index: 3; width: 100%;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 32px; padding: 0 56px 84px; flex-wrap: wrap;
+}
+.hero-kicker {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--mint); margin-bottom: 18px;
+}
+.hero-kicker b { display: block; width: 28px; height: 1px; background: var(--mint); }
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 300; line-height: 1.04;
+  color: white; letter-spacing: -0.02em; margin-bottom: 22px;
+}
+.hero h1 em { font-style: italic; color: var(--mint); }
+.hero-sub { font-size: 15px; color: rgba(255,255,255,0.72); max-width: 400px; line-height: 1.8; margin-bottom: 32px; }
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.btn-pri {
+  background: var(--sky); color: white; text-decoration: none;
+  padding: 14px 34px; border-radius: 100px;
+  font-size: 14px; font-weight: 600; letter-spacing: 0.03em;
+  box-shadow: 0 8px 28px rgba(30,132,181,0.42);
+  display: inline-block; transition: background 0.25s, transform 0.25s;
+}
+.btn-pri:hover { background: #176fa0; transform: translateY(-2px); color: white; }
+.btn-wh {
+  color: white; text-decoration: none; font-size: 14px; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.35); padding-bottom: 2px;
+  opacity: 0.82; transition: opacity 0.25s;
+}
+.btn-wh:hover { opacity: 1; color: white; }
+
+/* Glass contact card */
+.hero-glass {
+  background: rgba(255,255,255,0.13);
+  backdrop-filter: blur(22px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 18px; padding: 28px 30px;
+  min-width: 240px; display: flex; flex-direction: column; gap: 18px;
+}
+.glass-row { display: flex; align-items: center; gap: 13px; }
+.glass-icon {
+  width: 42px; height: 42px; border-radius: 11px;
+  background: rgba(184,253,236,0.2);
+  display: flex; align-items: center; justify-content: center; font-size: 19px; flex-shrink: 0;
+}
+.glass-lbl { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+.glass-val { font-size: 13.5px; font-weight: 700; color: #ffffff; text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
+.glass-val a { color: var(--mint); text-decoration: none; }
+
+/* Slide dots */
+.hero-dots {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  z-index: 4; display: flex; gap: 8px; align-items: center;
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(255,255,255,0.35); cursor: pointer;
+  transition: all 0.4s;
+}
+.dot.on { width: 26px; border-radius: 4px; background: var(--mint); }
+
+/* ── INFO BAR ── */
+.info-bar {
+  background: linear-gradient(90deg, var(--sky), #1da0d8);
+  padding: 15px 56px; display: flex; align-items: center;
+  gap: 0; flex-wrap: wrap;
+}
+.ipill { display: flex; align-items: center; gap: 10px; padding: 4px 32px 4px 0; }
+.ipill + .ipill { border-left: 1px solid rgba(255,255,255,0.18); padding-left: 32px; }
+.ipill svg { color: rgba(255,255,255,0.65); flex-shrink: 0; }
+.ipill-t { font-size: 13px; color: rgba(255,255,255,0.8); }
+.ipill-t strong { color: white; }
+.ipill-t a { color: var(--mint); text-decoration: none; font-weight: 600; }
+
+/* ── STATS ── */
+.stats { background: var(--cream); display: grid; grid-template-columns: repeat(4,1fr); border-bottom: 1px solid rgba(0,0,0,0.06); }
+.stat {
+  padding: 52px 32px; text-align: center;
+  border-right: 1px solid rgba(0,0,0,0.06);
+  transition: background 0.3s;
+}
+.stat:last-child { border-right: none; }
+.stat:hover { background: var(--sky-lt); }
+.snum {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 58px; font-weight: 600;
+  color: var(--sky); line-height: 1; display: block; margin-bottom: 6px;
+}
+.slbl { font-size: 11.5px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--mid); font-weight: 500; }
+
+/* ── SECTIONS ── */
+.sec { padding: 100px 56px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--sage); margin-bottom: 14px;
+}
+.eyebrow::before { content:''; width: 22px; height: 1.5px; background: var(--sage); display: block; }
+.stitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4.5vw, 58px); font-weight: 400;
+  line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 14px;
+}
+.stitle em { font-style: italic; color: var(--sky); }
+.ssub { font-size: 15px; color: var(--mid); max-width: 480px; line-height: 1.8; margin-bottom: 52px; }
+
+/* ── SERVICES ── */
+.srv-bg { background: var(--cream); }
+.srv-layout { display: grid; grid-template-columns: 1fr 2.2fr; gap: 72px; align-items: start; }
+.srv-sticky { position: sticky; top: 96px; }
+.srv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: #dde3e6; border-radius: 14px; overflow: hidden; }
+.srv-tile {
+  background: white; padding: 32px 28px;
+  position: relative; overflow: hidden; cursor: default;
+  transition: background 0.3s;
+}
+.srv-tile::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--sky); transform: scaleY(0); transform-origin: bottom;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+}
+.srv-tile:hover { background: var(--sky-lt); }
+.srv-tile:hover::before { transform: scaleY(1); }
+.t-icon {
+  width: 44px; height: 44px; border-radius: 11px;
+  background: var(--sky-lt); display: flex; align-items: center;
+  justify-content: center; font-size: 20px; margin-bottom: 14px; transition: background 0.3s;
+}
+.srv-tile:hover .t-icon { background: rgba(30,132,181,0.18); }
+.srv-tile h3 { font-family: 'Poppins', sans-serif; font-size: 14.5px; font-weight: 600; margin-bottom: 7px; }
+.srv-tile p { font-size: 13px; color: var(--mid); line-height: 1.68; }
+.t-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 600; color: var(--sky);
+  margin-top: 10px; text-decoration: none; opacity: 0;
+  transform: translateX(-6px); transition: opacity 0.3s, transform 0.3s;
+}
+.srv-tile:hover .t-link { opacity: 1; transform: translateX(0); }
+
+/* ── FACILITIES ── */
+.fac-bg { background: var(--bg); }
+.fac-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.fac-card {
+  background: white; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.fac-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(30,132,181,0.14); }
+.fac-img { height: 190px; overflow: hidden; }
+.fac-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
+.fac-card:hover .fac-img img { transform: scale(1.06); }
+.fac-body { padding: 22px 20px; }
+.fac-body h3 { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 7px; }
+.fac-body p { font-size: 13px; color: var(--mid); line-height: 1.68; }
+
+/* ── BEFORE AFTER ── */
+.ba-bg { background: var(--warm); }
+.ba-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.ba-card {
+  border-radius: 14px; overflow: hidden;
+  position: relative; aspect-ratio: 4/3;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.ba-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.ba-card:hover img { transform: scale(1.05); }
+.ba-lbl {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 36px 18px 14px;
+  font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; color: white;
+  background: linear-gradient(transparent, rgba(15,50,70,0.62));
+}
+
+/* ── TESTIMONIALS ── */
+.tes-bg { background: var(--sky-lt); }
+.tes-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.tes-card {
+  background: white; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 2px 14px rgba(30,132,181,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.tes-card:hover { transform: translateY(-4px); box-shadow: 0 14px 44px rgba(30,132,181,0.14); }
+.tes-thumb { position: relative; height: 210px; overflow: hidden; }
+.tes-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; display: block; }
+.tes-card:hover .tes-thumb img { transform: scale(1.04); }
+.play-ring {
+  position: absolute; inset: 0;
+  background: rgba(30,132,181,0.28);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.3s;
+}
+.tes-card:hover .play-ring { opacity: 1; }
+.play-c {
+  width: 52px; height: 52px; border-radius: 50%; background: white;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.16); transition: transform 0.3s;
+}
+.tes-card:hover .play-c { transform: scale(1.08); }
+.tes-meta { padding: 16px 18px 18px; display: flex; align-items: center; justify-content: space-between; }
+.tes-name { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600; }
+.tes-stars { color: #f0a500; letter-spacing: 2px; font-size: 13px; }
+
+/* ── WHY US ── */
+.why-bg {
+  background: linear-gradient(135deg, #1b5d78 0%, #2a8bb0 45%, #3ba898 100%);
+}
+.why-bg .eyebrow { color: var(--mint); }
+.why-bg .eyebrow::before { background: var(--mint); }
+.why-bg .stitle { color: white; }
+.why-bg .stitle em { color: var(--mint); }
+.why-bg .ssub { color: rgba(255,255,255,0.62); }
+.why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 22px; }
+.why-card {
+  background: rgba(255,255,255,0.11); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 18px; padding: 36px 26px;
+  backdrop-filter: blur(6px); transition: background 0.3s, transform 0.3s;
+}
+.why-card:hover { background: rgba(255,255,255,0.19); transform: translateY(-5px); }
+.why-n {
+  font-family: 'Cormorant Garamond', serif; font-size: 50px; font-weight: 300;
+  color: rgba(0, 0, 0, 0.574); line-height: 1; display: block; margin-bottom: -18px;
+}
+.why-ico { font-size: 30px; margin-bottom: 18px; display: block; }
+.why-card h3 { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600; color: var(--mint); margin-bottom: 10px; }
+.why-card p { font-size: 13.5px; color: rgba(255,255,255,0.6); line-height: 1.72; }
+
+/* ── CTA ── */
+.cta-sec {
+  background: var(--mint);
+  padding: 80px 56px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+}
+.cta-sec .eyebrow { color: var(--sage); }
+.cta-sec .eyebrow::before { background: var(--sage); }
+.cta-sec .stitle { font-size: clamp(30px, 3.5vw, 46px); margin-bottom: 0; }
+.cta-sec p { font-size: 15px; color: var(--sage); margin-top: 10px; }
+.btn-drk {
+  background: var(--text); color: white; text-decoration: none;
+  padding: 18px 44px; border-radius: 100px;
+  font-size: 15px; font-weight: 600; display: inline-block; white-space: nowrap;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.18); transition: background 0.25s, transform 0.25s;
+}
+.btn-drk:hover { background: #2d2d2d; transform: translateY(-2px); color: white; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--cream);
+  border-top: 1px solid rgba(0,0,0,0.07);
+  padding: 72px 56px 40px;
+}
+.ft-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr; gap: 48px; margin-bottom: 52px; }
+.ft-logo img { height: 34px; margin-bottom: 18px; display: block; }
+.ft-about { font-size: 14px; color: var(--mid); line-height: 1.8; }
+.ft-col h4 {
+  font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--text); margin-bottom: 18px;
+}
+.ft-col ul { list-style: none; }
+.ft-col li { margin-bottom: 9px; }
+.ft-col a { font-size: 14px; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+.ft-col a:hover { color: var(--sky); }
+.ft-contact { font-size: 14px; color: var(--mid); line-height: 1.8; }
+.ft-contact strong { color: var(--text); }
+.ft-contact a { color: var(--sky); text-decoration: none; }
+.ft-bot {
+  border-top: 1px solid rgba(0,0,0,0.07); padding-top: 26px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;
+}
+.ft-bot p { font-size: 13px; color: var(--lt); }
+.ft-soc { display: flex; gap: 10px; }
+.ft-soc a {
+  width: 36px; height: 36px; border-radius: 9px;
+  background: var(--bg); display: flex; align-items: center; justify-content: center;
+  color: var(--mid); text-decoration: none;
+  border: 1px solid rgba(0,0,0,0.08); transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.ft-soc a:hover { background: var(--sky); color: white; border-color: var(--sky); }
+
+/* ── REVEAL ── */
+.rv { opacity: 0; transform: translateY(26px); transition: opacity 0.72s ease, transform 0.72s ease; }
+.rv.in { opacity: 1; transform: none; }
+.rv.d1 { transition-delay: 0.08s; }
+.rv.d2 { transition-delay: 0.16s; }
+.rv.d3 { transition-delay: 0.24s; }
+.rv.d4 { transition-delay: 0.32s; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .srv-layout { grid-template-columns: 1fr; }
+  .srv-sticky { position: static; }
+  .fac-grid { grid-template-columns: repeat(2,1fr); }
+  .ft-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media(max-width:900px){
+  nav { padding: 0 28px; }
+  .sec { padding: 72px 28px; }
+  .info-bar { padding: 14px 28px; }
+  .ipill { padding: 4px 22px 4px 0; }
+  .ipill+.ipill { padding-left: 22px; }
+  .stats { grid-template-columns: repeat(2,1fr); }
+  .ba-grid { grid-template-columns: repeat(2,1fr); }
+  .tes-grid { grid-template-columns: repeat(2,1fr); }
+  .hero-content { padding: 0 28px 64px; }
+  .hero-glass { display: none; }
+  .hero-dots { bottom: 22px; }
+  .cta-sec { padding: 60px 28px; }
+  footer { padding: 60px 28px 36px; }
+}
+@media(max-width:620px){
+  .nav-links { display: none; }
+  .srv-grid { grid-template-columns: 1fr; }
+  .fac-grid { grid-template-columns: 1fr; }
+  .ba-grid { grid-template-columns: 1fr; }
+  .tes-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .ft-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 46px; }
+  .info-bar { flex-direction: column; align-items: flex-start; padding: 16px 28px; gap: 10px; }
+  .ipill+.ipill { border-left: none; padding-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo"><a href="#"><img src="https://www.dentaloptima.in/images/logo-new.svg" alt="Dental Optima" id="navlogo"></a></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#facilities">Facilities</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#patients">Patients</a></li>
+    <li><a href="https://www.dentaloptima.in/about.html">About</a></li>
+    <li><a href="https://www.dentaloptima.in/contact.html" class="btn-nav">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="slides-wrap">
+    <div class="slide active" style="background-image:url('https://www.dentaloptima.in/images/temp-images/slide-one.jpg')"></div>
+    <div class="slide" style="background-image:url('https://www.dentaloptima.in/images/temp-images/slide-five.jpg')"></div>
+    <div class="slide" style="background-image:url('https://www.dentaloptima.in/images/temp-images/slide-two.jpg')"></div>
+    <div class="slide" style="background-image:url('https://www.dentaloptima.in/images/temp-images/slide-three.jpg')"></div>
+  </div>
+  <div class="hero-grad"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-kicker"><b></b>Dental Optima · East Delhi</div>
+      <h1>Where <em>Healthy</em><br>Smiles Begin</h1>
+      <p class="hero-sub">25 years of excellence — state-of-the-art technology, experienced specialists, all under one roof in East Delhi.</p>
+      <div class="hero-btns">
+        <a href="https://www.dentaloptima.in/contact.html" class="btn-pri">Book Appointment</a>
+        <a href="#services" class="btn-wh">Explore Services ↓</a>
+      </div>
+    </div>
+    <div class="hero-glass">
+      <div class="glass-row">
+        <div class="glass-icon">📞</div>
+        <div><div class="glass-lbl">Call Us</div><div class="glass-val"><a href="tel:9354303488">9354303488</a> · <a href="tel:+911122413333">22413333</a></div></div>
+      </div>
+      <div class="glass-row">
+        <div class="glass-icon">🕘</div>
+        <div><div class="glass-lbl">Hours</div><div class="glass-val">Mon–Fri 9–6 PM · Sat 9–3 PM</div></div>
+      </div>
+      <div class="glass-row">
+        <div class="glass-icon">📍</div>
+        <div><div class="glass-lbl">Location</div><div class="glass-val">Preet Vihar, East Delhi</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-dots" id="dots">
+    <div class="dot on" data-i="0"></div>
+    <div class="dot" data-i="1"></div>
+    <div class="dot" data-i="2"></div>
+    <div class="dot" data-i="3"></div>
+  </div>
+</section>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+  <div class="ipill">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01 0 2.13 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+    <span class="ipill-t">Call: <strong><a href="tel:9354303488">9354303488</a></strong> · <a href="tel:+911122413333">22413333</a></span>
+  </div>
+  <div class="ipill">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <span class="ipill-t">Mon–Fri: <strong>9 AM – 6 PM</strong> &nbsp;·&nbsp; Sat: <strong>9 AM – 3 PM</strong></span>
+  </div>
+  <div class="ipill">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span class="ipill-t">Preet Vihar, <strong>East Delhi</strong></span>
+  </div>
+  <div class="ipill" style="margin-left:auto;border-left:1px solid rgba(255,255,255,0.18);padding-left:32px;">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <span class="ipill-t"><a href="mailto:dentaloptima@gmail.com">dentaloptima@gmail.com</a></span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat rv">
+    <span class="snum"><span class="cnt" data-to="25">0</span>+</span>
+    <span class="slbl">Years of Practice</span>
+  </div>
+  <div class="stat rv d1">
+    <span class="snum"><span class="cnt" data-to="15000">0</span>+</span>
+    <span class="slbl">Patients Treated</span>
+  </div>
+  <div class="stat rv d2">
+    <span class="snum"><span class="cnt" data-to="10">0</span>+</span>
+    <span class="slbl">Dental Specialists</span>
+  </div>
+  <div class="stat rv d3">
+    <span class="snum"><span class="cnt" data-to="98">0</span>%</span>
+    <span class="slbl">Patient Satisfaction</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="sec srv-bg" id="services">
+  <div class="srv-layout">
+    <div class="srv-sticky rv">
+      <span class="eyebrow">What We Offer</span>
+      <h2 class="stitle">Comprehensive<br><em>Dental Care</em></h2>
+      <p class="ssub">From routine checkups to advanced cosmetic procedures — every service delivered with precision and genuine care.</p>
+      <a href="https://www.dentaloptima.in/contact.html" class="btn-pri">Book a Consultation</a>
+    </div>
+    <div class="srv-grid rv d1">
+      <div class="srv-tile"><div class="t-icon">🦷</div><h3>Family Dentistry</h3><p>Comprehensive care for every age — cleanings, fillings, and preventive treatments in a warm environment.</p><a href="https://www.dentaloptima.in/family-dentistry.html" class="t-link">Learn more →</a></div>
+      <div class="srv-tile"><div class="t-icon">✨</div><h3>Cosmetic & Esthetic</h3><p>Veneers, bonding, whitening, and smile makeovers using the latest dental bonding technology.</p><a href="https://www.dentaloptima.in/cosmetic-eshthetic-dentistry.html" class="t-link">Learn more →</a></div>
+      <div class="srv-tile"><div class="t-icon">🧒</div><h3>Kids Corner</h3><p>Gentle, anxiety-free dental care for children — building healthy habits from the very first visit.</p><a href="https://www.dentaloptima.in/kids-corner.html" class="t-link">Learn more →</a></div>
+      <div class="srv-tile"><div class="t-icon">🔬</div><h3>Sterilization</h3><p>Hospital-grade protocols eliminating all cross-infection risks — your safety is non-negotiable.</p><a href="https://www.dentaloptima.in/sterlisation.html" class="t-link">Learn more →</a></div>
+      <div class="srv-tile"><div class="t-icon">💛</div><h3>Dental Anxiety</h3><p>Calm-first, specialised approach for nervous patients — every procedure made pain-free and relaxed.</p><a href="https://www.dentaloptima.in/dental-fears-phobias.html" class="t-link">Learn more →</a></div>
+      <div class="srv-tile"><div class="t-icon">🌸</div><h3>Women's Dental</h3><p>Tailored treatments addressing unique dental needs through puberty, pregnancy, and menopause.</p><a href="https://www.dentaloptima.in/womens-special-dental-needs.html" class="t-link">Learn more →</a></div>
+      <div class="srv-tile"><div class="t-icon">🦴</div><h3>Implants</h3><p>Breakthrough implant technology to restore full function and give you a completely natural smile.</p><a href="https://www.dentaloptima.in/breakthrough-technology.html" class="t-link">Learn more →</a></div>
+      <div class="srv-tile"><div class="t-icon">🖥️</div><h3>Digital Dentistry</h3><p>Intraoral scanners, OPG & CBCT imaging for precise, modern, comfortable diagnosis and planning.</p><a href="https://www.dentaloptima.in/cutting-edge-technology.html" class="t-link">Learn more →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="sec fac-bg" id="facilities">
+  <div class="rv" style="text-align:center;margin-bottom:52px;">
+    <span class="eyebrow">Our Infrastructure</span>
+    <h2 class="stitle">World-Class <em>Facilities</em></h2>
+    <p class="ssub" style="margin:0 auto;text-align:center;">Advanced technology ensuring accurate diagnosis and the safest, most comfortable treatment.</p>
+  </div>
+  <div class="fac-grid">
+    <div class="fac-card rv"><div class="fac-img"><img src="https://www.dentaloptima.in/images/x-ray-machine.jpg" alt="CBCT OPG"></div><div class="fac-body"><h3>Orthophos OPG & CBCT</h3><p>German-made 2D & 3D imaging of full jaw in one exposure — precise diagnosis with minimal radiation.</p></div></div>
+    <div class="fac-card rv d1"><div class="fac-img"><img src="https://www.dentaloptima.in/images/xray-machine.jpg" alt="OPG"></div><div class="fac-body"><h3>French OPG Unit</h3><p>Full orthopantomogram capturing teeth, jaws, and TMJ on a single plate for comprehensive analysis.</p></div></div>
+    <div class="fac-card rv d2"><div class="fac-img"><img src="https://www.dentaloptima.in/images/laughing-gas.jpg" alt="Laughing Gas"></div><div class="fac-body"><h3>Nitrous Oxide</h3><p>Safe sedation for anxious patients and children — every procedure calm and comfortable.</p></div></div>
+    <div class="fac-card rv d3"><div class="fac-img"><img src="https://www.dentaloptima.in/images/mobility-chair.jpg" alt="Stair Chair"></div><div class="fac-body"><h3>Stair Climbing Chair</h3><p>High-quality mobility solution for patients with special needs — accessibility from the first step.</p></div></div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="sec ba-bg" id="results">
+  <div class="rv" style="text-align:center;margin-bottom:48px;">
+    <span class="eyebrow">Our Work</span>
+    <h2 class="stitle">Creating <em>Beautiful</em> Smiles</h2>
+    <p class="ssub" style="margin:0 auto;text-align:center;">Real transformations. Real patients. Before & after.</p>
+  </div>
+  <div class="ba-grid">
+    <div class="ba-card rv"><img src="https://www.dentaloptima.in/images/ba08.jpg" alt="Teeth Whitening"><div class="ba-lbl">Teeth Whitening</div></div>
+    <div class="ba-card rv d1"><img src="https://www.dentaloptima.in/images/ba01.jpg" alt="Veneers"><div class="ba-lbl">Space Closure with Veneers</div></div>
+    <div class="ba-card rv d2"><img src="https://www.dentaloptima.in/images/ba02.jpg" alt="Braces"><div class="ba-lbl">Malalignment Correction</div></div>
+    <div class="ba-card rv"><img src="https://www.dentaloptima.in/images/ba04.jpg" alt="Implants"><div class="ba-lbl">Implant-Supported Dentures</div></div>
+    <div class="ba-card rv d1"><img src="https://www.dentaloptima.in/images/ba07.jpg" alt="Filling"><div class="ba-lbl">Composite & Amalgam Filling</div></div>
+    <div class="ba-card rv d2"><img src="https://www.dentaloptima.in/images/ba05.jpg" alt="Denture"><div class="ba-lbl">Complete Denture</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec tes-bg" id="patients">
+  <div class="rv" style="text-align:center;margin-bottom:48px;">
+    <span class="eyebrow">Patient Stories</span>
+    <h2 class="stitle">Let Our Patients<br><em>Do the Talking</em></h2>
+    <p class="ssub" style="margin:0 auto;text-align:center;">Thousands of East Delhi families trust Dental Optima with their smiles.</p>
+  </div>
+  <div class="tes-grid">
+    <div class="tes-card rv"><div class="tes-thumb"><img src="https://www.dentaloptima.in/images/temp-images/nt1.jpg" alt="Dr Saroj"><div class="play-ring"><div class="play-c"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--sky)"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></div><div class="tes-meta"><span class="tes-name">Dr. Saroj</span><span class="tes-stars">★★★★★</span></div></div>
+    <div class="tes-card rv d1"><div class="tes-thumb"><img src="https://www.dentaloptima.in/images/temp-images/t1.jpg" alt="Hema Aron"><div class="play-ring"><div class="play-c"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--sky)"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></div><div class="tes-meta"><span class="tes-name">Hema Aron</span><span class="tes-stars">★★★★★</span></div></div>
+    <div class="tes-card rv d2"><div class="tes-thumb"><img src="https://www.dentaloptima.in/images/temp-images/nt4.jpg" alt="A. Chowdhry"><div class="play-ring"><div class="play-c"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--sky)"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></div><div class="tes-meta"><span class="tes-name">A. Chowdhry</span><span class="tes-stars">★★★★★</span></div></div>
+    <div class="tes-card rv"><div class="tes-thumb"><img src="https://www.dentaloptima.in/images/temp-images/t2.jpg" alt="A A Kazmi"><div class="play-ring"><div class="play-c"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--sky)"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></div><div class="tes-meta"><span class="tes-name">A. A. Kazmi</span><span class="tes-stars">★★★★★</span></div></div>
+    <div class="tes-card rv d1"><div class="tes-thumb"><img src="https://www.dentaloptima.in/images/temp-images/t3.jpg" alt="Dr Manjari Gopal"><div class="play-ring"><div class="play-c"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--sky)"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></div><div class="tes-meta"><span class="tes-name">Dr. Manjari Gopal</span><span class="tes-stars">★★★★★</span></div></div>
+    <div class="tes-card rv d2"><div class="tes-thumb"><img src="https://www.dentaloptima.in/images/temp-images/t5.jpg" alt="Radhika Khanna"><div class="play-ring"><div class="play-c"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--sky)"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></div><div class="tes-meta"><span class="tes-name">Radhika Khanna</span><span class="tes-stars">★★★★★</span></div></div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="sec why-bg">
+  <div class="rv" style="text-align:center;margin-bottom:48px;">
+    <span class="eyebrow">Why Choose Us</span>
+    <h2 class="stitle">The Dental Optima<br><em>Difference</em></h2>
+    <p class="ssub" style="margin:0 auto;text-align:center;max-width:460px;">We don't just treat teeth — we build relationships on trust, transparency, and clinical excellence.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card rv"><span class="why-n">01</span><span class="why-ico">🏅</span><h3>25+ Years of Trust</h3><p>Two and a half decades serving East Delhi families with consistent, high-quality clinical care.</p></div>
+    <div class="why-card rv d1"><span class="why-n">02</span><span class="why-ico">🔧</span><h3>Advanced Technology</h3><p>German CBCT, OPG imaging, digital scanners — precision tools for accurate diagnosis every time.</p></div>
+    <div class="why-card rv d2"><span class="why-n">03</span><span class="why-ico">🛡️</span><h3>Zero-Compromise Hygiene</h3><p>Autoclave sterilization and single-use instruments — protocols that eliminate all cross-infection risks.</p></div>
+    <div class="why-card rv d3"><span class="why-n">04</span><span class="why-ico">❤️</span><h3>Patient-First Always</h3><p>Anxiety management, accessibility, and a team trained to make every visit genuinely comfortable.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-sec">
+  <div>
+    <span class="eyebrow">Get Started</span>
+    <h2 class="stitle">Ready for a Healthier,<br>Brighter Smile?</h2>
+    <p>Walk in or call us — our team is ready to welcome you.</p>
+  </div>
+  <a href="https://www.dentaloptima.in/contact.html" class="btn-drk">Book Your Appointment →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-grid">
+    <div>
+      <div class="ft-logo"><img src="https://www.dentaloptima.in/images/logo-new.svg" alt="Dental Optima"></div>
+      <p class="ft-about">Dental Optima delivers the highest quality of routine and specialized dental services in the most relaxed and comfortable environment — all under one roof in East Delhi.</p>
+    </div>
+    <div class="ft-col"><h4>Pages</h4><ul><li><a href="https://www.dentaloptima.in/index.html">Home</a></li><li><a href="https://www.dentaloptima.in/about.html">About Us</a></li><li><a href="https://www.dentaloptima.in/team.html">Our Team</a></li><li><a href="https://www.dentaloptima.in/tour.html">Virtual Tour</a></li><li><a href="https://www.dentaloptima.in/blog">Blog</a></li><li><a href="https://www.dentaloptima.in/faq.html">FAQ</a></li></ul></div>
+    <div class="ft-col"><h4>Services</h4><ul><li><a href="https://www.dentaloptima.in/family-dentistry.html">Family Dentistry</a></li><li><a href="https://www.dentaloptima.in/cosmetic-eshthetic-dentistry.html">Cosmetic & Esthetic</a></li><li><a href="https://www.dentaloptima.in/kids-corner.html">Kids Corner</a></li><li><a href="https://www.dentaloptima.in/breakthrough-technology.html">Implants</a></li><li><a href="https://www.dentaloptima.in/cutting-edge-technology.html">Digital Dentistry</a></li><li><a href="https://www.dentaloptima.in/new-look-dentistry.html">Teeth Whitening</a></li></ul></div>
+    <div class="ft-col"><h4>Contact</h4><div class="ft-contact"><p><strong>Phone</strong><br><a href="tel:9354303488">9354303488</a> · <a href="tel:+911122413333">011-22413333</a></p><br><p><strong>Email</strong><br><a href="mailto:dentaloptima@gmail.com">dentaloptima@gmail.com</a></p><br><p><strong>Hours</strong><br>Mon–Fri: 9 AM – 6 PM<br>Saturday: 9 AM – 3 PM</p></div></div>
+  </div>
+  <div class="ft-bot">
+    <p>© 2024 Dental Optima. All Rights Reserved.</p>
+    <div class="ft-soc">
+      <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://www.youtube.com/channel/UCO9kovV0umjJs26iMN7Yy6A" aria-label="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 1.96A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 001.94-1.94 29 29 0 00.46-5.33 29 29 0 00-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// NAV
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 60), {passive:true});
+
+// HERO SLIDESHOW
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let cur = 0, tid;
+
+function goTo(n) {
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('on');
+  cur = (n + slides.length) % slides.length;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('on');
+}
+function next() { goTo(cur + 1); }
+function startTimer() { clearInterval(tid); tid = setInterval(next, 5200); }
+dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.i); startTimer(); }));
+startTimer();
+
+// REVEAL
+const rvEls = document.querySelectorAll('.rv');
+const ro = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+rvEls.forEach(e => ro.observe(e));
+
+// COUNT UP
+const statsEl = document.querySelector('.stats');
+let counted = false;
+new IntersectionObserver(es => {
+  if (es[0].isIntersecting && !counted) {
+    counted = true;
+    document.querySelectorAll('.cnt').forEach(el => {
+      const to = +el.dataset.to, steps = 55;
+      let i = 0;
+      const t = setInterval(() => {
+        i++;
+        const v = Math.round(to * (i / steps));
+        el.textContent = to >= 1000 ? v.toLocaleString('en-IN') : v;
+        if (i >= steps) clearInterval(t);
+      }, 1600 / steps);
+    });
+  }
+}, { threshold: 0.4 }).observe(statsEl);
+</script>
+</body>
+</html>
