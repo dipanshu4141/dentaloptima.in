@@ -73,14 +73,38 @@ nav.solid .nav-links a { color: var(--mid); }
   overflow: hidden; display: flex; align-items: flex-end;
 }
 .slides-wrap { position: absolute; inset: 0; }
+
 .slide {
   position: absolute; inset: 0;
-  background-size: cover; background-position: center;
-  opacity: 0; transition: opacity 1.2s ease; z-index: 0;
+  opacity: 0; z-index: 0;
   transform: scale(1.06);
   transition: opacity 1.3s ease, transform 8s ease-out;
 }
+
 .slide.active { opacity: 1; transform: scale(1); z-index: 1; }
+
+/* blurred bg layer */
+.slide::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  filter: blur(18px) brightness(0.6);
+  transform: scale(1.05);
+  z-index: 0;
+}
+
+/* crisp image layer — natural width */
+.slide::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: inherit;
+  background-size:  auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
 .hero-grad {
   position: absolute; inset: 0; z-index: 2;
   background: linear-gradient(
@@ -416,6 +440,26 @@ footer {
   .info-bar { flex-direction: column; align-items: flex-start; padding: 16px 28px; gap: 10px; }
   .ipill+.ipill { border-left: none; padding-left: 0; }
 }
+
+@media(max-width:620px) {
+  .hero { align-items: flex-end; }
+  .hero-content { padding: 0 24px 52px; }
+}
+@media(max-width:620px) {
+  .hero h1 { font-size: 38px; }
+}
+@media(max-width:620px) {
+  .slide.two::after { background-position: 80% top; }
+  .slide.three::after { background-position: 80% top; }
+  .slide.four::after { background-position: 75% center; background-size: 100vh auto;  }
+}
+@media(max-width:620px) {
+  .hero-grad {
+    background: linear-gradient(0deg,rgba(5, 5, 5, 0.83) 0%, rgba(255, 255, 255, 0) 51%, rgba(0, 0, 0, 0.5) 100%);
+  }
+}
+
+
 </style>
 </head>
 <body>
@@ -436,10 +480,10 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="slides-wrap">
-    <div class="slide active" style="background-image:url('https://www.dentaloptima.in/images/temp-images/slide-one.jpg')"></div>
-    <div class="slide" style="background-image:url('https://www.dentaloptima.in/images/temp-images/slide-five.jpg')"></div>
-    <div class="slide" style="background-image:url('https://www.dentaloptima.in/images/temp-images/slide-two.jpg')"></div>
-    <div class="slide" style="background-image:url('https://www.dentaloptima.in/images/temp-images/slide-three.jpg')"></div>
+    <div class="slide active one" style="background-image:url('https://www.dentaloptima.in/images/temp-images/slide-one.jpg')"></div>
+    <div class="slide two" style="background-image:url('https://www.dentaloptima.in/images/temp-images/slide-five.jpg')"></div>
+    <div class="slide three" style="background-image:url('https://www.dentaloptima.in/images/temp-images/slide-two.jpg')"></div>
+    <div class="slide four" style="background-image:url('https://www.dentaloptima.in/images/temp-images/slide-three.jpg')"></div>
   </div>
   <div class="hero-grad"></div>
 
